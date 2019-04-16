@@ -9,26 +9,24 @@
 <meta name="generator" content="WebExpert 5">
 
 </head>
-<body background="grey.jpg">
-<br><br><center>
-<br>
-<form action="mailto: troti.fr@gmail.com" name="envoi" method=POST enctype="text/plain">
-<table border="0"><tr><td>
-<b>Nom : </b><input name="nom"size=50 maxlength=50><br>
-<b>Prenom : </b><input name="PRENOM"size=50 maxlength=50><br>
-<b>Téléphone : </b><input name="telephone"size=50 maxlength=50><br>
-<b>Mail : </b><input name="mail"size=50 maxlength=50><br>
-<b>Adresse : </b><input name="adresse"size=50 maxlength=50><br>
-<b>Adresse complémentaire : </b><input name="adresse complementair"size=50 maxlength=50><br>
-<b>Code postal : </b><input name="code postal"size=50 maxlength=50><br>
-<b>Date de début de location : </b><input name="date debut"size=50 maxlength=50><br>
-<b>Date de fin de location : </b><input name="adresse complementair"size=50 maxlength=50><br>
-
-</form>
-<form method="post" name="form1">
-<!--<input type="text" name="reference"><a href="#" onClick="window.open('ref.html','popup','width=800,height=600,toolbar=false,scrollbars=yes');">Voir les Motif</a>-->
-<p><input type="submit" value="Envoyer">
-</FORM>
-</center>
+<article class="contact">
+				<h2 class="titrecontact">Contact</h2>
+				<div class="form-style-8 paddingtop">
+				  	<form action="mailto:troti.fr@gmail.com?subject=Commande design" name="envoi" method=POST enctype="text/plain">
+				    	<input type="text" name="field1" size=50 maxlength=50 placeholder="Pseudo" />
+				    	<input type="email" name="field2" size=50 maxlength=50 placeholder="Email" />
+				   	 		<select>
+				   	 			<option class="first" value="offre">---Choisir une offre---</option>
+				 				<option value="logo">Logo</option>
+				 				<option value="mascotte">Mascotte</option>
+				  				<option value="banner">Bannière</option>
+				  				<option value="pack">Pack Youtube</option>
+				  				<option value="header">Header</option>
+							</select>
+				    	<textarea placeholder="Message" size=500 maxlength=500 onkeyup="adjust_textarea(this)"></textarea>
+				    	<input class="envoi" type="button" value="Send Message" />
+				  	</form>
+				</div>
+			</article>
 </body>
 </html>
