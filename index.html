@@ -1,142 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr-CA">
 <head>
-<title></title>
-
+    <meta charset="utf-8">
+    <title>Contact</title>
 </head>
-<article class="contact">
-				<h2 class="titrecontact">Contact</h2>
-				<div class="form-style-8 paddingtop">
-				  	<form action="mailto:troti.fr@gmail.com?subject=Commande design" name="envoi" method=POST enctype="text/plain">
-				    	<input type="text" name="field1" size=50 maxlength=50 placeholder="Pseudo" />
-				    	<input type="email" name="field2" size=50 maxlength=50 placeholder="Email" />
-				   	 		<select>
-				   	 			<option class="first" value="offre">---Choisir une offre---</option>
-				 				<option value="logo">Logo</option>
-				 				<option value="mascotte">Mascotte</option>
-				  				<option value="banner">Bannière</option>
-				  				<option value="pack">Pack Youtube</option>
-				  				<option value="header">Header</option>
-							</select>
-				    	<textarea placeholder="Message" size=500 maxlength=500 onkeyup="adjust_textarea(this)"></textarea>
-				    	<input class="envoi" type="button" value="Send Message" />
-				  	</form>
-				</div>
-			</article>
+
+<body>
+    <h1>Contact</h1>
+    <form method="post">
+        <label>Email</label>
+        <input type="email" name="email" required><br>
+        <label>Message</label>
+        <textarea name="message" required></textarea><br>
+        <input type="submit">
+    </form>
+    <?php
+    if (isset($_POST['message'])) {
+        $position_arobase = strpos($_POST['email'], '@');
+        if($position_arobase === false)
+            echo '<p>Votre email doit comporter un arobase.</p>';
+        else {
+            $retour=mail('jules@free.fr','Envoi depuis page Contact', $_POST['message'], 'From : ' . $_POST['email']);
+            if($retour)
+                echo '<p>Votre message a été envoyé.</p>';
+            else
+                echo '<p>Erreur.</p>';
+        }
+    }
+    ?>
 </body>
-<script type="text/javascript">
-function adjust_textarea(h) {
-    h.style.height = "20px";
-    h.style.height = (h.scrollHeight)+"px";
-}
-</script>
-<style type="text/css">
-.contact {
-    background-color: #FFF;
-    height: 700px;
-    padding-top: 50px;
-}
-
-.titrecontact {
-    font-size: 2.5em;
-    color: #233140;
-    border-bottom: 5px solid #233140;
-    max-width: 250px;
-    text-align: center;
-    margin: auto;
-}
-
-.form-style-8{
-    width: 60%;
-    margin: auto;
-    padding-top: 75px;
-}
-
-.form-style-8 input[type="text"],
-.form-style-8 input[type="date"],
-.form-style-8 input[type="datetime"],
-.form-style-8 input[type="email"],
-.form-style-8 input[type="number"],
-.form-style-8 input[type="search"],
-.form-style-8 input[type="time"],
-.form-style-8 input[type="url"],
-.form-style-8 input[type="password"],
-.form-style-8 textarea,
-.form-style-8 select
-{
-    display: block;
-    width: 60%;
-    padding: 7px;
-    border: none;
-    border-bottom: 1px solid #233140;
-    background: transparent;
-    margin-bottom: 10px;
-    margin: auto;
-    height: 45px;
-    font-family: 'Conv_Share-Regular';
-    font-size: 1.5em;
-    color: #233140;
-}
-
-.form-style-8 textarea{
-    resize:none;
-    overflow: hidden;
-    color: #233140;
-}
-
-.form-style-8 input[type="button"], 
-.form-style-8 input[type="submit"]{
-    -moz-box-shadow: inset 0px 1px 0px 0px #2C3E50;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #2C3E50;
-    background-color: #2C3E50;
-    border: 3px solid #233140;
-    display: inline-block;
-    cursor: pointer;
-    color: #FFFFFF;
-    font-size: 14px;
-    padding: 8px 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin: auto;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Conv_Share-Regular';
-    width: 10%;
-}
-
-.form-style-8 input[type="button"]:hover, 
-.form-style-8 input[type="submit"]:hover {
-    background:-webkit-linear-gradient(top, #233140 5%, #233140 100%);
-    background:linear-gradient(to bottom, #233140 5%, #233140 100%);
-    background-color:#233140;
-}
-
-.paddingtop {
-    margin-top: 100px;
-}
-
-textarea:-moz-placeholder {
-    color: #233140;
-}
-  
-textarea::-webkit-input-placeholder {
-    color: #233140;
-}
-
-
-input:-moz-placeholder {
-    color: #233140;
-}
-  
-input::-webkit-input-placeholder {
-    color: #233140;
-}
-</style>
-
 </html>
